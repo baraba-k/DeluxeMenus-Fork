@@ -1,0 +1,53 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+version = '1.21.1-1.0.0'
+group = 'com.extendedclip.deluxemenus'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.yaml:snakeyaml:2.2'
+    jarJar 'org.yaml:snakeyaml:2.2'
+}
+
+neoForge {
+    version = '21.1.121'
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+    }
+
+    mods {
+        deluxemenus {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    additionalRuntimeClasspath 'org.yaml:snakeyaml:2.2'
+}
+
+tasks.named('jar', Jar) {
+    archiveFileName.set('DeluxeMenus-1.21.1-neoforge.jar')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

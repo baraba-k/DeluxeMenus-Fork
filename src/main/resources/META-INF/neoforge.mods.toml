@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "GPL-3.0"
+
+[[mods]]
+modId = "deluxemenus"
+version = "1.21.1-1.0.0"
+displayName = "DeluxeMenus"
+description = '''
+DeluxeMenus ported to Minecraft 1.21.1 NeoForge.
+Create fully customizable interactive GUI menus with items, requirements, actions, and placeholders!
+'''
+authors = "clip, extendedclip, fork maintainer"
+
+[[dependencies.deluxemenus]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.deluxemenus]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
